@@ -4,9 +4,9 @@ from django.utils import timezone
 # Create your models here.
 
 
-class Aulas(models.Model):
+class Aula(models.Model):
 	autor = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-	titulo = models.CharField(max_length = 80)
+	titulo = models.CharField(max_length = 80, default='')
 	ASSUNTOS = (
 		('ECA', 'ENTENDENDO A CONTAMINAÇÃO DOS ALIMENTOS'), 
 		('AMA', 'AMBIENTE DE MANIPULAÇÃO E CUIDADOS COM ÁGUA'),
@@ -17,15 +17,15 @@ class Aulas(models.Model):
 		('DOC', 'DOCUMENTAÇÃO'),
 
 		)
-	assuntos = models.CharField(max_length = 2, choices = ASSUNTOS, default='ECA')
-	conteudo = models.TextField()
-	video = models.CharField(max_length = 500)
+	assuntos = models.CharField(max_length = 3, choices = ASSUNTOS, default='')
+	conteudo = models.TextField(default='')
+	video = models.CharField(max_length = 800, default='')
 	ativo = models.BooleanField(default=True)
 
 
 class Comentario(models.Model):
 	#criar classe aluno
-	aula = models.ForeignKey(Aulas, on_delete=models.CASCADE)
+	aula = models.ForeignKey(Aula, on_delete=models.CASCADE)
 	comentario = models.TextField()
 
 	def published_date(self):

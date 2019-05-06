@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Coma bem caminhoneiro</title>
+</head>
+<body>
+	{% for aula in aulas %}
+		<a href="{% url 'aula' pk=aula.pk %}">
+			{{aula.titulo}}
+		</a>
+
+	{% endfor %}
+
+</body>
+</html>
+
