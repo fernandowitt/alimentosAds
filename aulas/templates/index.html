@@ -1,0 +1,26 @@
+{% extends 'projetoIntegradoAlimentos/base_index.html' %}
+{% block title %}Página Inicial{% endblock %}
+{% block content %}
+    <header>
+      {% load static %}
+      <a href=""><img id="display_imagem_header" src="{% static 'imagens/header.png' %}" alt = "Header." title = "Header da Página" /></a>
+    </header>
+
+    <div class="bloco_principal">
+
+  		
+      {% for aula in aulas %}
+      <div class = "texto_titulo"><a href = "{% url 'aula' pk=aula.pk %}" target = "_blank" >{{aula.titulo}}</a></div>
+      <div class = "texto_resumo">A tecnologia de alimentos é um campo multidisciplinar que envolve conhecimentos das áreas de química, bioquímica, nutrição, farmácia e que refere-se a um ...</div>
+      {% endfor %}
+
+      <ol id="lista_proximas_paginas">
+        <li><a href="#">Próxima Página</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">Última Página</a></li>
+      </ol>
+    </div>
+
+{% endblock %}

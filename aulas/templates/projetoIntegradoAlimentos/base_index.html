@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang = "pt-br">
+    <head>
+        <meta charset = "UTF-8" />
+        <meta name = "description" content = "Projeto de Extensão de Análise e Desenvolvimento de Sistemas e Alimentos." />
+        <meta name = "keywords" content = "" />
+        <meta name = "author" content = "Fernando Witt, John Marcos & Rojiê Lima" />
+        <meta name = "robots" content = "index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel = "icon" href = "{% static '#' %}"/>
+				<link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+
+    <body>
+    	<nav>
+    	   <ul>
+  			      <li><a href="../"><i class="material-icons">home</i> Início</a></li>
+  			      <li><a href="#"><i class="material-icons">info</i> Sobre Nós</a></li>
+  			      <li><a href="#"><i class="material-icons">contact_support</i> Contate-nos</a></li>
+  			      <li style="float:right;"><a class="botao_ajuda" href="ajuda.html"><i class="material-icons">help_outline</i> Ajuda</a></li>
+  			      <li style="float: center; border-right: none; padding-left: 10%;">
+              <b>
+                <label for="entrada">Busca</label>
+                <input type="text" name="entrada_pesquisa" />
+            	  <button type="submit"><i class="material-icons">search</i> Pesquisar </button>
+           		  <strong> Filtros </strong>
+            	  <select>
+            		    <optgroup label ="Filtrar por"> </optgroup>
+                    <optgroup label = "Sem filtros">
+                      <option value = "filtro_nenhum_filtro" > Nenhum Filtro </option>
+                    </optgroup>
+	                  <optgroup label ="Data">
+        	             <option value = "filtro_data_mais_antigo" > Mais Antigos </option>
+            	         <option value = "filtro_data_ultimas_publicacoes" > Últimas publicações </option>
+            	      </optgroup>
+                	  <optgroup label = "Conteúdo">
+                		    <option value = "filtro_imagens" > Imagens </option>
+	                      <option value = "filtro_videos" > Vídeos </option>
+                        <option value = "filtro_textos"> Textos </option>
+                    </optgroup>
+	               </select>
+               </b>
+             </li>
+           </ul>
+         </nav>
+         <br>
+
+      {% block content %}
+      {% endblock %}
+      <aside>
+          AQUI VAI AS NOTÍCIAS: ASIDE DIREITO
+      </aside>
+    </body>
+</html>

@@ -17,9 +17,9 @@ def criarNovaAula(request):
 
 def aulasList(request):
 	aulas = Aula.objects.all()
-	return render(request, 'HTML/inicio.html', {'aulas':aulas})
+	return render(request, 'index.html', {'aulas':aulas})
 
 def aula(request, pk):
 	aula = Aula.objects.get(pk = pk)
-	return render(request, 'HTML/aulaDetail.html', {'aula':aula})
+	return render(request, 'projetoIntegradoAlimentos/aula.html', {'aula':aula})
 
